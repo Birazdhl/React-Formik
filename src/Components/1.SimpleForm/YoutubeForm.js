@@ -44,7 +44,7 @@ function YoutubeForm() {
     })
 
 
-    console.log(formik.errors)
+    console.log("Visited- Fields" ,formik.touched)
 
     return (
         <div>
@@ -54,24 +54,30 @@ function YoutubeForm() {
 
                 <label htmlFor="name">Name</label>
                 <input type="text" id="name" name="name" 
-                onChange={formik.handleChange} value={formik.values.name}></input>
-                {formik.errors.name ? <div className='error'>{formik.errors.name}</div> : null }
+                onChange={formik.handleChange} 
+                onBlur={formik.handleBlur} //Visited-Fields
+                value={formik.values.name}></input> 
+                { formik.touched.name && formik.errors.name ? <div className='error'>{formik.errors.name}</div> : null } 
 </div>
 
 <div className='form-control'>
 
                 <label htmlFor="email">E-mail</label>
                 <input type="text" id="email" name="email" 
-                onChange={formik.handleChange} value={formik.values.email}></input>
-                {formik.errors.email ? <div className='error'>{formik.errors.email}</div> : null }
+                onChange={formik.handleChange} 
+                onBlur={formik.handleBlur}
+                value={formik.values.email}></input>
+                {formik.touched.email && formik.errors.email ? <div className='error'>{formik.errors.email}</div> : null }
 </div>
 
 <div className='form-control'>
 
                 <label htmlFor="channel">Channel</label>
                 <input type="text" id="channel" name="channel" 
-                onChange={formik.handleChange} value={formik.values.channel}></input>
-                {formik.errors.channel ? <div className='error'>{formik.errors.channel}</div> : null }
+                onChange={formik.handleChange} 
+                onBlur={formik.handleBlur}
+                value={formik.values.channel}></input>
+                {formik.touched.channel && formik.errors.channel ? <div className='error'>{formik.errors.channel}</div> : null }
 </div>
 
 
